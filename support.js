@@ -1,1 +1,0 @@
-// Objectif -> Lorsqu'une personne fait cette commande, cela envoie me mp avec le mess, le pseudo de la personne etc
