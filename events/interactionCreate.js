@@ -75,7 +75,7 @@ module.exports = {
 					interaction.update({embeds : [embed], components: [row]});
 				}
 			} catch(e){
-				console.log(`Erreur : Impossible de répondre au bouton ${interaction.customId}`)
+				console.log(`ERREUR : Impossible de répondre au bouton ${interaction.customId}`)
 			}
 		}
 	},
