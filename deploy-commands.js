@@ -18,8 +18,9 @@ for (const folder of commandFolders) {
 		const command = require(filePath);
 		if ('data' in command && 'execute' in command) {
 			commands.push(command.data.toJSON());
+			console.log(`INFO : Chargement de ${file} effectué.`)
 		} else {
-			console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+			console.log(`WARNING : La commande au fichier ${filePath} manque une propriété "data" ou "execute".`);
 		}
 	}
 }
@@ -30,7 +31,7 @@ const rest = new REST().setToken(token);
 // and deploy your commands!
 (async () => {
 	try {
-		console.log(`Started refreshing ${commands.length} application (/) commands.`);
+		console.log(`INFO : Raffraichissement des ${commands.length} application (/) commands commencé.`);
 
 		// The put method is used to fully refresh all commands in the guild with the current set
 		const data = await rest.put(
@@ -38,7 +39,7 @@ const rest = new REST().setToken(token);
 			{ body: commands },
 		);
 
-		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
+		console.log(`INFO : Raffraichissement des ${data.length} application (/) commands réussi.`);
 	} catch (error) {
 		// And of course, make sure you catch and log any errors!
 		console.error(error);
